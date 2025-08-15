@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD_OPs"
         mc:Ignorable="d" ResizeMode="CanMinimize"
-        Title="ClientManager" Height="400" Width="500">
+        Title="ClientManager" Height="420" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70px"/>
@@ -19,7 +19,7 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal"
                     HorizontalAlignment="Center">
         <Button x:Name="SaveButton" Height="30" 
-                Width="80" Content="Save" 
+                Width="80" Content="Save" IsDefault="True" 
                 FontSize="16" Margin="105 0 0 0" Click="SaveButton_Click"/>
         <Button x:Name="CancelButton" Height="30" 
                 Width="80" Content="Cancel" 
