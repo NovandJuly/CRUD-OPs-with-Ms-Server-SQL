@@ -11,11 +11,16 @@
             <RowDefinition Height="45px"/>
             <RowDefinition Height="45px"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="13"/>
         </Grid.RowDefinitions>
+        <Label Content="CRUD DESKTOP APP"
+               FontWeight="Bold"
+               FontSize="18"
+               Margin="0 11 0 0"/>
 
         <DockPanel Grid.Row="1" Margin="5" LastChildFill="False">
 
-            <Button Height="30" Width="80" Click="AddButton_clicked" 
+            <Button Width="80" Click="AddButton_clicked" 
                     Content="Add" FontSize="14" FontWeight="DemiBold" 
                     Name="AddButton" Margin="0 0 10 0"
                     HorizontalAlignment="Left" ToolTip="Add client">
@@ -39,6 +44,21 @@
                 </Button.Effect>
             </Button>
         </DockPanel>
+        <StackPanel Grid.Row="3">
+            <Ellipse x:Name="ConnectionStatus"
+                     Grid.Row="3"   
+                     Width="12" Height="12"
+                     HorizontalAlignment="Left"
+                     Margin="12 0 0 0"
+                     Stroke="Gray"
+                     StrokeThickness="0.1"/>
+            <Label Name="ConxLabel"
+                   Content="Connected"
+                   Foreground="Gray"
+                   Margin="22 -19 0 0"
+                   FontSize="11"
+                   />
+        </StackPanel>
 
         <DataGrid x:Name="DataGridName" ColumnWidth="*" 
                   AlternatingRowBackground="#f2f2f2"

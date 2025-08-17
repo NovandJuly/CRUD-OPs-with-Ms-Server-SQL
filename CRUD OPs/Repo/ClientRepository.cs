@@ -8,7 +8,6 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
 namespace CRUD_OPs.Repo
 {
     public class ClientRepository
@@ -24,7 +23,6 @@ namespace CRUD_OPs.Repo
                 using (SqlConnection connection = new(sqlKey))
                 {
                     connection.Open();
-                    MessageBox.Show("Connection Established to: " + connection.Database);
                     string sqlQuery = "SELECT * FROM clients ORDER BY id ASC";
 
                     using (SqlCommand command = new(sqlQuery, connection))
@@ -174,7 +172,24 @@ namespace CRUD_OPs.Repo
             {
                 MessageBox.Show("CreateUser_Exception: " + ex.Message);
             }
-        }   
+        }
+        
+        public bool ConxStatus()
+        {
+            using (SqlConnection connection = new(sqlKey)) 
+            {
+                connection.Open();
+            if (connection.State == ConnectionState.Open)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            }
+        }
+
 
 
     }

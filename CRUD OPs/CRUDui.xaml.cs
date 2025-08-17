@@ -1,5 +1,8 @@
 ﻿using CRUD_OPs.Model;
 using CRUD_OPs.Repo;
+
+using Microsoft.Data.SqlClient;
+
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,6 +29,7 @@ namespace CRUD_OPs
         {
             InitializeComponent();
             ReadClients();
+            UserConnectionStats();
         }
 
         private void ReadClients()
@@ -112,6 +116,23 @@ namespace CRUD_OPs
 
                 ReadClients();
             }
+        }
+        private void  UserConnectionStats()
+        {
+            ClientRepository client = new();
+            bool conxStatus = client.ConxStatus();
+
+                if (conxStatus)
+                {
+                    ConnectionStatus.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8fe48f"));
+                    ConxLabel.Content = "Connected.";
+                }
+                else
+                {
+                    ConnectionStatus.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#cb3d48"));
+                    ConxLabel.Content = "Disconnected.";
+                }
+
         }
     }
 }
