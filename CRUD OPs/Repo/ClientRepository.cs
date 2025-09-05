@@ -40,14 +40,11 @@ namespace CRUD_OPs.Repo
                                 Address = reader.GetString(5),
                                 CreatedAt = reader.GetDateTime(6).ToString("yyyy-MM-dd HH:mm:ss")
                             };
-
                             Clients.Add(client);
-                            Console.WriteLine("Client found: " + client.FirstName);
                         }
+                        
                     }
                 }
-
-                MessageBox.Show("Total clients fetched: " + Clients.Count);
             }
             catch (Exception ex)
             {
@@ -189,8 +186,6 @@ namespace CRUD_OPs.Repo
             }
             }
         }
-
-
-
+        
     }
 }

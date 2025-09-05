@@ -58,6 +58,18 @@
                    Margin="22 -19 0 0"
                    FontSize="11"
                    />
+            <Label Content="Total:"
+                   Foreground="Gray"
+                   HorizontalAlignment="Right"
+                   Margin="22 -25 35 0"
+                   FontSize="11"/>
+            <Label Name="TotalCountLabel"
+                   Content="55"
+                   HorizontalAlignment="Right"
+                   Margin="22 -25 22 0"
+                   FontSize="11"
+                   Foreground="Gray"
+                   />
         </StackPanel>
 
         <DataGrid x:Name="DataGridName" ColumnWidth="*" 

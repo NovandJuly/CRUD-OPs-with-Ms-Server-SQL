@@ -1,8 +1,6 @@
 ﻿using CRUD_OPs.Model;
 using CRUD_OPs.Repo;
-
 using Microsoft.Data.SqlClient;
-
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -60,6 +58,7 @@ namespace CRUD_OPs
             }
 
             DataGridName.ItemsSource = dataTable.DefaultView;
+            GetTotal();
         }
 
         private void AddButton_clicked(object sender, RoutedEventArgs e)
@@ -105,6 +104,10 @@ namespace CRUD_OPs
 
             MessageBoxResult dialogResult = MessageBox.Show("Are You Sure ?", "Delete Confirmation", MessageBoxButton.YesNo);
 
+            if (DataGridName.SelectedItem == null)
+            {
+                MessageBox.Show("Please Select A Client to delete.", "Warning",MessageBoxButton.OK,MessageBoxImage.Warning);
+            }
             if (dialogResult == MessageBoxResult.No)
             {
                 return;
@@ -133,6 +136,13 @@ namespace CRUD_OPs
                     ConxLabel.Content = "Disconnected.";
                 }
 
+        }
+        public void GetTotal()
+        {
+            var repo = new ClientRepository();
+            var getInfos = repo.GetClients();
+            int totalCount = getInfos.Count();
+            TotalCountLabel.Content = totalCount;
         }
     }
 }
